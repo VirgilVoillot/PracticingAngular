@@ -1,10 +1,10 @@
-<div [ngClass]="{'dark-theme': isDarkTheme}">
+<div [ngClass]="{'dark-theme': isDarkTheme}" style="height: 100%;">
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button aria-label="Menu">
+    <button mat-icon-button aria-label="Menu" (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>Practice Angular</span>
+    <span class="example-spacer">Practice Angular</span>
     <button mat-icon-button aria-label="Theme" *ngIf="!isDarkTheme" (click)="changeTheme()">
       <mat-icon>dark_mode</mat-icon>
     </button>
@@ -14,17 +14,15 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+<mat-drawer-container class="example-container" autosize style="height:calc(100% - 64px);">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <sidenav></sidenav>
+  </mat-drawer>
 
-<main>
-  <div>
-    <mat-card>
-      <h1>Page Not Found</h1>
-      <p>We're sorry. The page you are looking for cannot be found.</p>
-      <a routerLink="/" mat-raised-button color="primary">Go Home</a>
-      <a routerLink="/guides" mat-raised-button>Read Guides</a>
-    </mat-card>
+  <div style="padding:20px">
+    <router-outlet></router-outlet>
   </div>
-</main>
 
+</mat-drawer-container>
 
 </div>

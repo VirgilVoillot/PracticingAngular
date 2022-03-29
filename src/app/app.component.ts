@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'practiceAngular';
   isDarkTheme=false;
+  showFiller = false;
 
   changeTheme(){
     this.isDarkTheme = !this.isDarkTheme;
